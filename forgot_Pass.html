@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forgot Password - IITI Bot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/iiti_logo.png" alt="IIT Indore Logo" class="logo" />
+      <span>IITI Bot</span>
+    </div>
+    <div class="nav-right">
+      <a href="/home">Home</a>
+      <a href="/about">About</a>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="form-container">
+      <h2>Forgot Password</h2>
+      <form onsubmit="return handleForgotPassword(event)">
+        <input type="email" name="email" id="email" placeholder="Enter your registered email" required />
+
+        <button type="submit">Reset Password</button>
+        <p class="login-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // testing registered emails for demonstration
+    // In a real application, this would be replaced with server-side validation
+    const registeredEmails = [
+      "john@iitindore.ac.in",
+      "student@example.com",
+      "aditya.rai@iiti.ac.in",
+    ];
+
+    function handleForgotPassword(event) {
+      event.preventDefault();
+
+      const emailInput = document.getElementById("email").value.trim().toLowerCase();
+
+      if (registeredEmails.includes(emailInput)) {
+        alert("✅ Password reset link has been sent to your email.");
+        window.location.href = "login.html";
+      } else {
+        alert("⚠️ No account found with this email.");
+      }
+
+      return false;
+    }
+  </script>
+</body>
+</html>

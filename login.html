@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login - IITI Bot</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="assets/iiti_logo.png" alt="IIT Indore Logo" class="logo" />
+            <span>IITI Bot</span>
+        </div>
+        <div class="nav-right">
+            <a href="/home">Home</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Login Form -->
+        <div class="form-container">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+
+                <div class="flex-between">
+                    <a href="/forgot_Pass.html">Forgot password?</a>
+                </div>
+
+                <button type="submit">Login</button>
+                <p class="login-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+            </form>
+        </div>
+
+        <!-- Right Side Description -->
+        <div class="description-container">
+            <h3>Welcome to IITI Bot</h3>
+            <p>
+                Join the AI-powered journey of IIT Indore. From students to researchers, everyone can leverage this platform to access personalized insights and services across the academic ecosystem.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

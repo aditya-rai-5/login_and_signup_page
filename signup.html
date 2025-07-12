@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Signup - IITI Bot</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="assets/iiti_logo.png" alt="IIT Indore Logo" class="logo" />
+            <span>IITI Bot</span>
+        </div>
+        <div class="nav-right">
+            <a href="/home">Home</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Signup Form -->
+        <div class="form-container">
+            <h2>Create Your Account</h2>
+            <form action="/signup" method="POST">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Full Name" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                </div>
+                <input type="tel" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+
+                <label>Are you a member of IIT Indore?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="is_iiti" value="yes" onchange="toggleIITMemberFields()" /> Yes</label>
+                    <label><input type="radio" name="is_iiti" value="no" onchange="toggleIITMemberFields()" /> No</label>
+                </div>
+
+                <div id="iit_member_section" style="display: none;">
+                    <div class="auth-warning">
+                        🔒 <strong>We verify all IIT Indore members for authenticity.</strong><br />
+                        Providing false information may result in rejection.
+                    </div>
+
+                    <label for="member_type">Member Type</label>
+                    <select id="member_type" name="member_type" onchange="handleMemberType()">
+                        <option value="">-- Select --</option>
+                        <option value="student">Student</option>
+                        <option value="professor">Professor</option>
+                        <option value="staff">Staff</option>
+                        <option value="researcher">Researcher</option>
+                    </select>
+
+                    <div id="student_fields" style="display: none;">
+                        <label for="program">Program</label>
+                        <select name="program" id="program">
+                            <option value="">-- Select Program --</option>
+                            <option value="BTech">BTech</option>
+                            <option value="MTech">MTech</option>
+                            <option value="MSc">MSc</option>
+                            <option value="MS(R)">MS(R)</option>
+                            <option value="PhD">PhD</option>
+                        </select>
+
+                        <label for="student_dept">Department</label>
+                        <input type="text" name="student_dept" placeholder="e.g. Mathematics, EE" />
+
+                        <label for="passing_year">Passing Year</label>
+                        <input type="number" name="passing_year" placeholder="e.g. 2026" min="2009" max="2100" />
+                    </div>
+
+                    <div id="optional_dept" style="display: none;">
+                        <label for="dept">Department (Optional)</label>
+                        <input type="text" name="dept" placeholder="e.g. Chemistry, Mathematics" />
+                    </div>
+                </div>
+
+                <button type="submit">Register</button>
+                <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+            </form>
+        </div>
+
+        <!-- Description -->
+        <div class="description-container">
+            <h2>Welcome to IITI Bot</h2>
+            <p>
+                IITI Bot is an intelligent platform crafted for IIT Indore members and learners across India. Whether you're a student, researcher, or staff — this AI-powered bot helps you interact with services and resources more effectively.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleIITMemberFields() {
+            const value = document.querySelector('input[name="is_iiti"]:checked').value;
+            document.getElementById("iit_member_section").style.display = value === "yes" ? "block" : "none";
+            document.getElementById("student_fields").style.display = "none";
+            document.getElementById("optional_dept").style.display = "none";
+        }
+
+        function handleMemberType() {
+            const type = document.getElementById("member_type").value;
+            document.getElementById("student_fields").style.display = type === "student" ? "block" : "none";
+            document.getElementById("optional_dept").style.display = (type === "professor" || type === "researcher") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
