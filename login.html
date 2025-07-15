@@ -1,48 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Login - IITI Bot</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>Login - IITI Bot</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-left">
-            <img src="assets/iiti_logo.png" alt="IITI BOT Logo" class="logo" />
-            <span class="brand-name">IITI BOT</span>
-        </div>
-        <div class="nav-right">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="login.html" class="btn login-btn">Log In</a>
-            <a href="signup.html" class="btn signup-btn">Sign Up</a>
-        </div>
-    </nav>
-
-    <div class="main-container">
-        <!-- Login Form -->
-        <div class="form-container">
-            <h2>Login</h2>
-            <form action="/login" method="POST">
-                <input type="email" name="email" placeholder="Email" required />
-                <input type="password" name="password" placeholder="Password" required />
-
-                <div class="flex-between">
-                    <a href="/forgot_Pass.html">Forgot password?</a>
-                </div>
-
-                <button type="submit">Login</button>
-                <p class="login-link">Don't have an account? <a href="signup.html">Sign up</a></p>
-            </form>
-        </div>
-
-        <!-- Right Side Description -->
-        <div class="description-container">
-            <h3>Welcome to IITI Bot</h3>
-            <p>
-                Join the AI-powered journey of IIT Indore. From students to researchers, everyone can leverage this platform to access personalized insights and services across the academic ecosystem.
-            </p>
-        </div>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/iiti_logo.png" alt="IITI BOT Logo" class="logo" />
+      <span class="brand-name">IITI BOT</span>
     </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="login.html" class="btn login-btn">Log In</a>
+      <a href="signup.html" class="btn signup-btn">Sign Up</a>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <!-- Login Form -->
+    <div class="form-container">
+      <h2>Login</h2>
+      <form action="/login" method="POST" autocomplete="on">
+        <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+        <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
+
+        <div class="flex-between">
+          <a href="/forgot_Pass.html">Forgot password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+
+        <div class="or-sep"><span>OR</span></div>
+
+        <!-- Google Auth -->
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-login_uri="http://localhost:3000/auth/google/callback"
+             data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="pill"
+             data-theme="outline"
+             data-text="sign_in_with"
+             data-size="large">
+        </div>
+
+        <p class="login-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+      </form>
+    </div>
+
+    <!-- Description -->
+    <div class="description-container">
+      <h3>Welcome to IITI Bot</h3>
+      <p>
+        Join the AI-powered journey of IIT Indore. From students to researchers, everyone can leverage this platform to access personalized insights and services across the academic ecosystem.
+      </p>
+    </div>
+  </div>
 </body>
 </html>

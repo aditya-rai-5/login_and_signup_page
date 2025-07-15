@@ -169,6 +169,43 @@ form button:active {
     transform: scale(0.98);
 }
 
+/* Google Sign Up Button */
+
+.or-sep{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.google-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.google-btn {
+    background: #2808fb;
+    color: white;
+    padding: 2px 100px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.google-btn:hover {
+    background: #357ae8;
+}
+
+.google-logo {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
 .radio-group {
     display: flex;
     gap: 20px;
